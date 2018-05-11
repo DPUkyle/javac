@@ -1,38 +1,10 @@
-buildscript {
-  repositories {
-    mavenLocal()
-    maven { url 'https://oss.jfrog.org/artifactory/libs-snapshot' } // for gradle-gosu-plugin snapshots
-    jcenter()
-  }
-
-  dependencies {
-    classpath 'org.gosu-lang.gosu:gradle-gosu-plugin:0.4.0-manifold-SNAPSHOT'
-  }
-
-}
-
-apply plugin: 'org.gosu-lang.gosu'
-
-// In this section you declare where to find the dependencies of your project
-repositories {
-    mavenLocal() //TODO delete me; local debugging
-    maven { url 'https://oss.jfrog.org/artifactory/libs-snapshot' } // for manifold snapshots
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' } // for gosu snapshots
-    jcenter()
+plugins {
+    id 'java'
 }
 
 dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.25'
-    compile 'org.gosu-lang.gosu:gosu-core:1-manifold-SNAPSHOT'
     compile files('lib/javac.jar')
-
-    testCompile 'junit:junit:4.12'
 }
 
-sourceSets.main.gosu.srcDirs = sourceSets.main.java.srcDirs.plus(sourceSets.main.gosu.srcDirs)
-sourceSets.main.java.srcDirs = []
-
-//compileGosu.options.forkOptions.jvmArgs += ['-J-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005']
-compileGosu.options.forkOptions.jvmArgs += ['-J-Dcompiler.type=gw']
-compileGosu.options.forkOptions.jvmArgs += ['-J-Dmanifold.string.template.disable=true']
-compileGosu.options.verbose = true
+//compileJava.options.forkOptions.jvmArgs += ['-J-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005']
+compileJava.options.verbose = true
