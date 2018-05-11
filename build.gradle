@@ -32,7 +32,7 @@ dependencies {
 sourceSets.main.gosu.srcDirs = sourceSets.main.java.srcDirs.plus(sourceSets.main.gosu.srcDirs)
 sourceSets.main.java.srcDirs = []
 
-//compileGosu.options.forkOptions.jvmArgs += ['-J-Xdebug', '-J-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=y']
+//compileGosu.options.forkOptions.jvmArgs += ['-J-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005']
 compileGosu.options.forkOptions.jvmArgs += ['-J-Dcompiler.type=gw']
 compileGosu.options.forkOptions.jvmArgs += ['-J-Dmanifold.string.template.disable=true']
 compileGosu.options.verbose = true
