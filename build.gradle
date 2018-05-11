@@ -1,7 +1,7 @@
 buildscript {
   repositories {
     mavenLocal()
-    maven { url 'https://oss.jfrog.org/artifactory/libs-snapshot' }
+    maven { url 'https://oss.jfrog.org/artifactory/libs-snapshot' } // for gradle-gosu-plugin snapshots
     jcenter()
   }
 
@@ -16,7 +16,8 @@ apply plugin: 'org.gosu-lang.gosu'
 // In this section you declare where to find the dependencies of your project
 repositories {
     mavenLocal() //TODO delete me; local debugging
-    maven { url 'https://oss.jfrog.org/artifactory/libs-snapshot' }
+    maven { url 'https://oss.jfrog.org/artifactory/libs-snapshot' } // for manifold snapshots
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' } // for gosu snapshots
     jcenter()
 }
 
